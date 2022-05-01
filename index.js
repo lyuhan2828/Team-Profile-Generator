@@ -17,13 +17,13 @@ function init() {
       },
       {
         type: "input",
-        name: "name",
-        message: "What is your name?",
+        name: "id",
+        message: "What is your ID?",
       },
       {
         type: "input",
-        name: "id",
-        message: "What is your ID?",
+        name: "number",
+        message: "What is your office number?",
       },
       {
         type: "input",
@@ -34,6 +34,11 @@ function init() {
         type: "input",
         name: "github",
         message: "what is your GitHub username?",
+      },
+      {
+        type: "input",
+        name: "school",
+        message: "Which school did you attend?",
       },
     ])
     .then(function (answers) {
@@ -62,7 +67,7 @@ function init() {
             console.log(ManagerAnswers);
             console.log(ManagerAnswers.email);
           }); 
-         
+        }
           else if(answers.role == "Engineer") {
           inquirer
             .prompt([
@@ -84,10 +89,35 @@ function init() {
             ])
             .then(function (EngineerAnswers) {
                 console.log(EngineerAnswers);
-                console.log(EngineerAnswers.email);
+                console.log(EngineerAnswers.github);
               });
-    });
-
+            }
+            else(answers.role == "Intern"); {
+                inquirer
+                .prompt([
+                    {
+                        type: "input",
+                        name: "id",
+                        message: "What is your ID?",
+                      },
+                      {
+                        type: "input",
+                        name: "email",
+                        message: "What is your Email?",
+                      },
+                      {
+                        type: "input",
+                        name: "school",
+                        message: "Which school did you attend?",
+                      },
+                ])
+                .then(function (InternAnswers) {
+                    console.log(InternAnswers);
+                    console.log(InternAnswers.school);
+                  });
+                }
+                });
+}
 
 // Function call to initialize app
 init();
