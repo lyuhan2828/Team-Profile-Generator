@@ -15,37 +15,12 @@ function init() {
         message: "What is your role?",
         choices: ["Manager", "Engineer", "Intern"],
       },
-      {
-        type: "input",
-        name: "id",
-        message: "What is your ID?",
-      },
-      {
-        type: "input",
-        name: "number",
-        message: "What is your office number?",
-      },
-      {
-        type: "input",
-        name: "email",
-        message: "What is your Email?",
-      },
-      {
-        type: "input",
-        name: "github",
-        message: "what is your GitHub username?",
-      },
-      {
-        type: "input",
-        name: "school",
-        message: "Which school did you attend?",
-      },
     ])
     .then(function (answers) {
       console.log(answers);
       console.log(answers.role);
       if (answers.role == "Manager") {
-        inquirer
+       return inquirer
           .prompt([
             {
               type: "input",
@@ -65,11 +40,11 @@ function init() {
           ])
           .then(function (ManagerAnswers) {
             console.log(ManagerAnswers);
-            console.log(ManagerAnswers.email);
+            console.log(ManagerAnswers.id, ManagerAnswers.email, ManagerAnswers.number);
           }); 
         }
           else if(answers.role == "Engineer") {
-          inquirer
+          return inquirer
             .prompt([
                 {
                     type: "input",
@@ -89,12 +64,18 @@ function init() {
             ])
             .then(function (EngineerAnswers) {
                 console.log(EngineerAnswers);
-                console.log(EngineerAnswers.github);
+                console.log(EngineerAnswers.id, EngineerAnswers.email, EngineerAnswers.github);
               });
             }
             else(answers.role == "Intern"); {
-                inquirer
+               return inquirer
                 .prompt([
+                    {
+                        type: "input",
+                        name: "title",
+                        message: "What is your role?",
+                        choices:["Manager", "Engineer", "Intern"]
+                    },
                     {
                         type: "input",
                         name: "id",
@@ -113,7 +94,7 @@ function init() {
                 ])
                 .then(function (InternAnswers) {
                     console.log(InternAnswers);
-                    console.log(InternAnswers.school);
+                    console.log(InternAnswers.id, InternAnswers.email, InternAnswers.school);
                   });
                 }
                 });
