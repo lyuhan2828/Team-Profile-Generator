@@ -8,7 +8,7 @@ getofficeNumber (){
     return this.officeNumber
 }
 getRole(){
-    return Manager
+    return 'Manager'
 }
 }
 module.exports = Manager
